@@ -5,7 +5,7 @@ import argparse
 import numpy as np
 import cv2
 import matplotlib
-# matplotlib.use('TkAgg')
+matplotlib.use('Agg')
 from matplotlib import pyplot as plt
 from _init_paths import *
 from util import *
@@ -16,6 +16,7 @@ from lightdet import *
 import pickle
 import time
 import logging
+import shutil
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 fullname = {
@@ -56,8 +57,12 @@ def restoreModel(**options):
     speedmode = options['speedmode']
     mode = options['mode']
     path = options['path']
-    if mode in ['testspeed']:
+    options['path'] = '/home/ubuntu/project/cs231n/kitti/2011_09_26_drive_0117_sync/data'
+    if options['testpath'] == '':
+        options['testpath'] = '/home/ubuntu/project/cs231n/kitti/2011_09_26_drive_0117_sync/data'
+    if mode in ['testspeed', 'all']:
         path = options['testpath']
+        options['path'] = path
     fn = '0000000001.png'
     im = cv2.imread(join(path, fn), cv2.IMREAD_COLOR)
     options = setInputShape(im, **options)
@@ -69,6 +74,8 @@ def restoreModel(**options):
                 restored_options = pickle.load(open(model_path + "model.conf", "rb" ))
                 restored_options['mode'] = options['mode']
                 restored_options['numframe'] = options['numframe']
+                restored_options['testpath'] = options['testpath']
+                restored_options['path'] = options['path']
                 options = restored_options
             else:
                 print("No stored configuration available! use current configuration!")
@@ -85,18 +92,24 @@ def play(framePaths, **options):
     sample_every = options['sample_every']
     includeflow, includeobj, includeimg = lookup(speedmode)
 
+    options['path']='/home/ubuntu/project/cs231n/kitti/2011_09_26_drive_0117_sync/data/'
+    
     path = options['path']
-    if mode in ['testspeed']:
-        path = options['testpath']
     if mode in ['testspeed', 'all']:
+        path = options['testpath']
+        options['path'] = options['testpath']
+        out = './' + path.split('/')[-2]
+        if os.path.isdir(out):
+            shutil.rmtree(out)
+        os.mkdir(out)
         test_mses = {}
 
     print('Playing video {}'.format(path))
     files = [f for f in listdir(path) if isfile(join(path, f)) and f.endswith('.png')]
     files = sorted(files)
 
-    if mode in ['loadmatch', 'all']:
-        matches = mcread(path)
+    #if mode in ['loadmatch', 'all']:
+       #matches = mcread(path)
     if mode in ['trainspeed', 'all', 'testspeed']:
         headers = loadHeader('{0}/../oxts'.format(path))
         im = cv2.imread(join(path, files[0]), cv2.IMREAD_COLOR)
@@ -165,7 +178,7 @@ def play(framePaths, **options):
             h,w,_ = im.shape
             h = 200
             icmp = np.ones((h,w,3), np.uint8) * 255
-            im, ans = predSpeed(im, porg, org, labels, restored_model, **options)
+            im, ans = predSpeed(im, porg, org, labels, restored_model, '{0}/../oxts'.format(path), **options)
             # im, lights = detlight(im, org, mode='label')
             # if options['detsign']:
                 # im, signs = loadMatch(im, org, fn, matches)
@@ -174,7 +187,11 @@ def play(framePaths, **options):
             info = []
             info.append('Frame: {0}'.format(fn))
             for k in ans:
+                if k not in test_mses:
+                    test_mses[k] = []
                 pred, gt = ans[k]
+                mse = (pred - gt) ** 2
+                test_mses[k].append(mse)
                 info.append('Predicted {}: {} {}. Ground Truth: {} {}'.format(fullname[k], pred,
                     unit[k], gt, unit[k]))
             if 'vf' in ans and 'wu' in ans:
@@ -205,8 +222,8 @@ def play(framePaths, **options):
                     icmp = cv2.putText(img=icmp, text=text, org=coord, fontFace=fontface, fontScale=0.6,
                         color=bgr('k'), thickness=2, lineType=8);
             loadLabels(fn, headers, labels, '{0}/../oxts'.format(path))
-        if mode in ['all', 'testspeed']:
-            im, ans = predSpeed(im, porg, org, labels, restored_model, **options)
+        if mode in ['testspeed']:
+            im, ans = predSpeed(im, porg, org, labels, restored_model, '{0}/../oxts'.format(path), **options)
             for k in ans:
                 if k not in test_mses:
                     test_mses[k] = []
@@ -243,8 +260,8 @@ def play(framePaths, **options):
         if mode in ['objdet', 'all'] and imgax is not None:
             drawObj(imgax, scores, boxes, **options)
 
-        plt.draw()
-        plt.pause(options['delay'])
+        plt.savefig(join(out, impath))
+        #plt.pause(options['delay'])
         if imgax is not None:
             imgax.clear()
 
@@ -254,11 +271,11 @@ def play(framePaths, **options):
     return options
 
 def demo(**options):
-    options['path'] = '/Users/Yaqi/ee368/kitti/2011_09_26-3/data'
+    options['path'] = '/home/ubuntu/project/cs231n/kitti/2011_09_26-3/data'
     options['startframe'] = 100
     options['endframe'] = 125
     play([], **options)
-    options['path'] = '/Users/Yaqi/ee368/kitti/2011_09_26-1/data'
+    options['path'] = '/home/ubuntu/project/cs231n/kitti/2011_09_26-1/data'
     options['startframe'] = 0
     options['endframe'] = 30
     play([], **options)
@@ -348,7 +365,7 @@ def main():
     (options, args) = parser.parse_known_args()
 
     if (options.path==''):
-        options.path = '{0}2011_09_26-{1}/data'.format(KITTI_PATH, 1)
+        options.path = '{0}2011_09_26{1}/data'.format(KITTI_PATH, '_drive_0117_sync')
     if (options.testpath==''):
         options.testpath = '{0}2011_09_26{1}/data'.format(KITTI_PATH, '_drive_0117_sync')
 
@@ -363,9 +380,9 @@ def main():
             demo(**options)
         return
 
+    for k in options:
+        print('Configuration: {}={}'.format(k,options[k]))
     if (options['mode'] in ['trainspeed', 'testspeed']):
-        for k in options:
-            print('Configuration: {}={}'.format(k,options[k]))
         trainModel(**options)
     else:
         play([], **options)

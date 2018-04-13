@@ -121,13 +121,15 @@ def getAvgChannel(channel, **options):
 
 def loadHeader(path):
     headers = {}
-    with open('{0}/dataformat.txt'.format(path), 'r') as dataformat:
-        for i, line in enumerate(dataformat):
-            headers[line.split(':')[0]] = i
+    if os.path.isdir(path):
+      with open('{0}/dataformat.txt'.format(path), 'r') as dataformat:
+          for i, line in enumerate(dataformat):
+              headers[line.split(':')[0]] = i
     return headers
 
 def loadLabels(fn, headers, labels, labelpath):
-    with open('{0}/data/{1}.txt'.format(labelpath, fn), 'r') as data:
+    if os.path.isdir(labelpath):
+      with open('{0}/data/{1}.txt'.format(labelpath, fn), 'r') as data:
         line = data.readline()
         vals = line.split(' ')
         for key in labels:
@@ -232,7 +234,7 @@ def polarflow(flow, **options):
     ang = np.reshape(np.angle(cplx), (H,W,1))
     return np.concatenate((mag,ang), axis=-1)
 
-def predSpeed(im, prev, cur, labels, restored_model, **options):
+def predSpeed(im, prev, cur, labels, restored_model, labelpath, **options):
     mode = options['mode']
     path = options['path']
     model = options['model']
@@ -248,9 +250,14 @@ def predSpeed(im, prev, cur, labels, restored_model, **options):
         res = dict(vf=(vf, gtvf), wu=(wu, gtwu))
     elif model=='conv':
         vf, wu, af = restored_model.test(X_test)
-        gtvf = labels['vf'][-1]
-        gtwu = labels['wu'][-1]
-        gtaf = labels['af'][-1]
+        if os.path.isdir(labelpath):
+            gtvf = labels['vf'][-1]
+            gtwu = labels['wu'][-1]
+            gtaf = labels['af'][-1]
+        else :
+            gtvf = 0
+            gtwu = 0
+            gtaf = 0
         if mode=='all':
             wu = np.rad2deg(wu)
         if mode=='all':
