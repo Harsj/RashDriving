@@ -5,14 +5,18 @@ import cv2
 
 # Convert video to png
 
-if iscv3(): 
-    CAP_PROP_FRAME_COUNT = cv2.CAP_PROP_FRAME_COUNT 
-    CAP_PROP_FPS = cv2.CAP_PROP_FPS
-    CAP_PROP_POS_FRAMES = cv2.CAP_PROP_POS_FRAMES
-elif iscv2():
-    CAP_PROP_FRAME_COUNT = cv2.cv.CV_CAP_PROP_FRAME_COUNT 
-    CAP_PROP_FPS = cv2.cv.CV_CAP_PROP_FPS
-    CAP_PROP_POS_FRAMES = cv2.cv.CV_CAP_PROP_POS_FRAMES
+#if iscv3(): 
+#    CAP_PROP_FRAME_COUNT = cv2.CAP_PROP_FRAME_COUNT 
+#    CAP_PROP_FPS = cv2.CAP_PROP_FPS
+#    CAP_PROP_POS_FRAMES = cv2.CAP_PROP_POS_FRAMES
+#elif iscv2():
+#    CAP_PROP_FRAME_COUNT = cv2.cv.CV_CAP_PROP_FRAME_COUNT 
+#    CAP_PROP_FPS = cv2.cv.CV_CAP_PROP_FPS
+#    CAP_PROP_POS_FRAMES = cv2.cv.CV_CAP_PROP_POS_FRAMES
+
+CAP_PROP_FRAME_COUNT = cv2.CAP_PROP_FRAME_COUNT 
+CAP_PROP_FPS = cv2.CAP_PROP_FPS
+CAP_PROP_POS_FRAMES = cv2.CAP_PROP_POS_FRAMES
 
 if __name__ == '__main__':
     import sys
@@ -23,10 +27,23 @@ if __name__ == '__main__':
             help='specify path for the image file')
     parser.add_argument('--num-frame', dest='numframe', type=int, default=1, nargs='?', 
             help='specify path for the image file')
+    parser.add_argument('--crop_top', dest='crop_top', type=int, default=0, nargs='?', 
+            help='Num Pixel to be cropped from top')
+    parser.add_argument('--crop_bottom', dest='crop_bottom', type=int, default=0, nargs='?', 
+            help='Num Pixel to be cropped from bottom')
+    parser.add_argument('--crop_left', dest='crop_left', type=int, default=0, nargs='?', 
+            help='Num Pixel to be cropped from left')
+    parser.add_argument('--crop_right', dest='crop_right', type=int, default=0, nargs='?', 
+            help='Num Pixel to be cropped from right')
+    parser.add_argument('--height', dest='height', type=int, default=375, nargs='?', 
+            help='Num Pixel to be cropped from right')
+    parser.add_argument('--width', dest='width', type=int, default=1242, nargs='?', 
+            help='Num Pixel to be cropped from right')
     (opts, args) = parser.parse_known_args()
-    if (len(args)!=2):
+    if (len(args) < 2):
         print(usage)
         exit(-1)
+
     vi = args[0]
     root, ext = splitext(vi)
     viname = basename(root)        
@@ -45,9 +62,17 @@ if __name__ == '__main__':
 
     readsuc, img = cap.read()
     i = startframe
-    while readsuc and i-startframe<opts.numframe:
-        outFile = '{0}/{1}_{2}.png'.format(outdir, viname,i)
-        cv2.imwrite(outFile,img)
+    while readsuc and i-startframe<fcnt:
+        outFile = '%010d.png'% (i-startframe)
+        im1 = img[opts.crop_top:img.shape[0]-opts.crop_bottom, opts.crop_left:img.shape[1]-opts.crop_right]
+        im2 = cv2.resize(im1,(opts.width,opts.height))
+        cv2.imwrite(join(outdir,outFile),im2)
         print(outFile)
-        readsuc, img = cap.read()
+		
+        #reducing from 30fps to 10fps
+        for J in range(3) :
+            if i-startframe+J < fcnt :
+                readsuc, img = cap.read()
         i += 1
+
+		
