@@ -102,6 +102,7 @@ def play(framePaths, **options):
         if os.path.isdir(out):
             shutil.rmtree(out)
         os.mkdir(out)
+        file_out = open(out + "/oxts.txt" , 'w')
         test_mses = {}
 
     print('Playing video {}'.format(path))
@@ -121,7 +122,7 @@ def play(framePaths, **options):
     if (mode not in ['trainspeed', 'testspeed']):
       plt.figure(dpi=140)
     for i, impath in enumerate(files):
-        if mode in ['trainspeed']:
+        if mode in ['trainspeed', 'testspeed', 'all']:
             if (i % sample_every) != 0:
                 continue
         fn, ext = splitext(impath)
@@ -207,6 +208,7 @@ def play(framePaths, **options):
                 else:
                     state = 'Still'
                 info.append('Current state: {0}'.format(state))
+                file_out.write(",".join(speed,angle) + "\n")
             # info.append('Current lights: [{0}]'.format(','.join(lights)))
             # if options['detsign']:
                 # info.append('Current signs: [{0}]'.format(','.join(signs)))
@@ -265,6 +267,7 @@ def play(framePaths, **options):
         if imgax is not None:
             imgax.clear()
 
+    file_out.close()
     if mode in ['testspeed', 'all']:
         for k in test_mses:
             print('Overall averaged test mse {}: {}'.format(k, np.sum(test_mses[k])/len(test_mses[k])))
