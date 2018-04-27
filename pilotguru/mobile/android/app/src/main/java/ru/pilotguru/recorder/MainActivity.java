@@ -478,7 +478,7 @@ public class MainActivity extends Activity {
   private void subscribeToLocationUpdates(LocationListener listener, long minTimeMsec) {
     final LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
     final String bestProvider = locationManager.getBestProvider(new Criteria(), false);
-    locationManager.requestLocationUpdates(bestProvider, minTimeMsec, 0.01f, listener);
+    locationManager.requestLocationUpdates(bestProvider, minTimeMsec, 0f, listener);
   }
 
   private void subscribeToImuUpdates(SensorEventListener listener, int delay) {
