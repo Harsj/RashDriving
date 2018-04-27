@@ -16,8 +16,8 @@ public class PreviewCoordinatesTextUpdater implements LocationListener {
 
   public void onLocationChanged(Location location) {
     final String coordinatesText = String.format(Locale.US,
-        "Coordinates:  lat %.03f  lon %.03f  alt: %.01f accuracy %.01f", location.getLatitude(),
-        location.getLongitude(), location.getAltitude(), location.getAccuracy());
+        "Coordinates:  lat: %.03f  lon: %.03f  alt: %.01f acc: %.01f speed: %.05f", location.getLatitude(),
+        location.getLongitude(), location.getAltitude(), location.getAccuracy(), location.getSpeed());
     textViewCoords.setText(coordinatesText);
   }
 
