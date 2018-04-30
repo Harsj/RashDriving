@@ -115,7 +115,10 @@ def play(framePaths, **options):
         headers = loadHeader('{0}/../oxts'.format(path))
         im = cv2.imread(join(path, files[0]), cv2.IMREAD_COLOR)
         options = setInputShape(im, **options)
-    labels = dict(vf=[], wu=[], af=[])
+    if optoins['if_kitti']==1:
+        labels = dict(vf=[], wu=[], af=[])
+    else:
+        labels = dict(vf=[], wu=[])
     img = None
     icmp = None
     porg = None
@@ -287,7 +290,11 @@ def trainModel(**options):
     print('Configuration: pid={}'.format(os.getpid()))
     sys.stdout.flush()
     framePaths = []
-    dirs = [join(KITTI_PATH, d) for d in listdir(KITTI_PATH) if isdir(join(KITTI_PATH, d))]
+
+    if options['if_kitti']==1:
+        dirs = [join(KITTI_PATH, d) for d in listdir(KITTI_PATH) if isdir(join(KITTI_PATH, d))]
+    else:
+        dirs = [join(OWN_PATH, d) for d in listdir(OWN_PATH) if isdir(join(OWN_PATH, d))]
     for vdir in dirs:
         options['path'] = '{0}/data/'.format(vdir)
         if options['path']==options['testpath']+'/':
@@ -365,6 +372,8 @@ def main():
             help='tf method for weight initialization')
     parser.add_argument('--step_optimize', dest='step_optimize', default=False, nargs='?',
             type=float, help='tf method for weight initialization')
+    parser.add_argument('--if_kitti', dest='if_kitti', default=0, nargs='?', type=int,
+            help='use 1 for using kitti dataset, 0 otherwise')
     (options, args) = parser.parse_known_args()
 
     if (options.path==''):

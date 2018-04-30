@@ -201,7 +201,10 @@ def loadData(framePaths, **options):
     speedXs = []
     path = dirname(framePaths[0])
     headers = loadHeader('{0}/../oxts'.format(path))
-    labels = dict(vf=[], wu=[], af=[])
+    if options['if_kitti'] == 1:
+        labels = dict(vf=[], wu=[], af=[])
+    else:
+        labels = dict(vf=[], wu=[])
     im = None
     if flowmode in [2,3]:
         H = rseg; W = cseg
@@ -222,8 +225,11 @@ def loadData(framePaths, **options):
     speedXs = np.reshape(np.array(speedXs), (-1, H,W,C))
     vf = np.reshape(labels['vf'], (-1, 1))
     wu = np.reshape(labels['wu'], (-1, 1))
-    af = np.reshape(labels['af'], (-1, 1))
-    speedYs = np.hstack((vf, wu, af))
+    if options['if_kitti']==1:
+        af = np.reshape(labels['af'], (-1, 1))
+        speedYs = np.hstack((vf, wu, af))
+    else:
+        speedYs = np.hstack((vf, wu))
     # print("speedXs.shape={} speedYs.shape={}".format(speedXs.shape, speedYs.shape))
     return ([speedXs, speedYs])
 
@@ -249,20 +255,28 @@ def predSpeed(im, prev, cur, labels, restored_model, labelpath, **options):
         gtwu = np.rad2deg(labels['wu'][-1])
         res = dict(vf=(vf, gtvf), wu=(wu, gtwu))
     elif model=='conv':
-        vf, wu, af = restored_model.test(X_test)
+        if options['if_kitti']==1:
+            vf, wu, af = restored_model.test(X_test)
+        else:
+            vf,wu = restored_model.test(X_test)
         if os.path.isdir(labelpath):
             gtvf = labels['vf'][-1]
             gtwu = labels['wu'][-1]
-            gtaf = labels['af'][-1]
+            if options['if_kitti']==1:
+                gtaf = labels['af'][-1]
         else :
             gtvf = 0
             gtwu = 0
-            gtaf = 0
+            if options['if_kitti']==1:
+                gtaf = 0
         if mode=='all':
             wu = np.rad2deg(wu)
         if mode=='all':
             gtwu = np.rad2deg(gtwu)
-        res = dict(vf=(vf, gtvf), wu=(wu, gtwu), af=(af, gtaf))
+        if options['if_kitti']==1:
+            res = dict(vf=(vf, gtvf), wu=(wu, gtwu), af=(af, gtaf))
+        else:
+            res = dict(vf=(vf, gtvf), wu=(wu, gtwu))
     return im, res
 
 def trainSpeed(frameFns, **options):

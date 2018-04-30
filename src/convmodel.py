@@ -351,9 +351,11 @@ class ConvModel(object):
         y = self.session.run(output_feed, feed_dict=input_feed)
         vf = y[0, 0]
         wu = y[0, 1]
-        af = y[0, 2]
-
-        return vf, wu, af
+        if self.options['if_kitti'] == 1:
+            af = y[0, 2]
+            return vf, wu, af
+        else
+            return vf, wu
 
     def validate(self, X_val, y_val):
         """
