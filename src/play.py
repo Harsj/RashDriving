@@ -102,7 +102,7 @@ def play(framePaths, **options):
         if os.path.isdir(out):
             shutil.rmtree(out)
         os.mkdir(out)
-        file_out = open(out + "/oxts.txt" , 'w')
+        file_out = open(join(out,"motion.txt") , 'w')
         test_mses = {}
 
     print('Playing video {}'.format(path))
@@ -211,7 +211,7 @@ def play(framePaths, **options):
                 else:
                     state = 'Still'
                 info.append('Current state: {0}'.format(state))
-                file_out.write(",".join(speed,angle) + "\n")
+                file_out.write(" ".join(speed,angle) + "\n")
             # info.append('Current lights: [{0}]'.format(','.join(lights)))
             # if options['detsign']:
                 # info.append('Current signs: [{0}]'.format(','.join(signs)))
