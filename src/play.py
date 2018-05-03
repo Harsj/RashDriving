@@ -92,7 +92,7 @@ def play(framePaths, **options):
     sample_every = options['sample_every']
     includeflow, includeobj, includeimg = lookup(speedmode)
 
-    options['path']='/home/ubuntu/project/cs231n/kitti/2011_09_26_drive_0117_sync/data/'
+    #options['path']='/home/ubuntu/project/cs231n/kitti/2011_09_26_drive_0117_sync/data/'
     
     path = options['path']
     if mode in ['testspeed', 'all']:
@@ -115,7 +115,7 @@ def play(framePaths, **options):
         headers = loadHeader('{0}/../oxts'.format(path))
         im = cv2.imread(join(path, files[0]), cv2.IMREAD_COLOR)
         options = setInputShape(im, **options)
-    if optoins['if_af']==1:
+    if options['if_af']==1:
         labels = dict(vf=[], wu=[], af=[])
     else:
         labels = dict(vf=[], wu=[])
@@ -270,8 +270,8 @@ def play(framePaths, **options):
         if imgax is not None:
             imgax.clear()
 
-    file_out.close()
     if mode in ['testspeed', 'all']:
+        file_out.close()
         for k in test_mses:
             print('Overall averaged test mse {}: {}'.format(k, np.sum(test_mses[k])/len(test_mses[k])))
     return options
