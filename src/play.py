@@ -211,7 +211,7 @@ def play(framePaths, **options):
                 else:
                     state = 'Still'
                 info.append('Current state: {0}'.format(state))
-                file_out.write(" ".join(speed,angle) + "\n")
+                file_out.write(str(speed) + " " + str(angle) + "\n")
             # info.append('Current lights: [{0}]'.format(','.join(lights)))
             # if options['detsign']:
                 # info.append('Current signs: [{0}]'.format(','.join(signs)))
