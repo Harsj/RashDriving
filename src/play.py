@@ -374,7 +374,7 @@ def main():
             type=float, help='tf method for weight initialization')
     parser.add_argument('--if_kitti', dest='if_kitti', default=0, nargs='?', type=int,
             help='use 1 for using kitti dataset, 0 otherwise')
-    parser.add_argument('--if_kitti', dest='if_af', default=0, nargs='?', type=int,
+    parser.add_argument('--if_af', dest='if_af', default=0, nargs='?', type=int,
             help='use 1 for using forward acceleration as model param, 0 otherwise')
     (options, args) = parser.parse_known_args()
 
