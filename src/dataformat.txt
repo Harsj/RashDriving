@@ -1,0 +1,2 @@
+vf:    forward velocity, i.e. parallel to earth-surface (m/s)
+wu:    angular rate around upward axis (rad/s)

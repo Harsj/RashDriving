@@ -2,8 +2,12 @@
 import argparse
 import numpy as np
 import cv2
+import os
+import shutil
 
 # Convert video to png
+# Ex:: E:\mtech\github\cs231n\src>python pgout_to_kitti_format.py ..\own\2018_04_26-14_00_00\ /
+#..\own\2018_04_26-14_00_00\ --width=1920 --height=1080
 
 #if iscv3(): 
 #    CAP_PROP_FRAME_COUNT = cv2.CAP_PROP_FRAME_COUNT 
@@ -48,16 +52,20 @@ if __name__ == '__main__':
     outdir = join(args[1],'data')
     outoxts = join(args[1], 'oxts')
     if os.path.isdir(args[1]):
-        os.mkdir(outoxts)
+        if not os.path.isdir(outoxts):
+            os.mkdir(outoxts)
+            os.mkdir(outdir)
     else:
         print(usage)
         exit(-1)
 
+    shutil.copy2("dataformat.txt",outoxts)
     outoxts = join(outoxts, 'data')
-    os.mkdir(outoxts)
+    if not os.path.isdir(outoxts):
+        os.mkdir(outoxts)
 
     cap = cv2.VideoCapture(join(vi,"video.mp4"))
-    fileoxts= open(join(vi,join("output","motion.txt"),'r')
+    fileoxts= open(join(vi,join("output","motion.txt")),'r')
 
     fcnt = int(cap.get(CAP_PROP_FRAME_COUNT))
     fps = int(cap.get(CAP_PROP_FPS))
