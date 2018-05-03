@@ -104,7 +104,10 @@ class ConvModel(object):
         if flowmode in [2,3]:
             H = rseg; W = cseg;
         self.X_placeholder = tf.placeholder(tp, [None, H, W, C])
-        self.y_placeholder = tf.placeholder(tp, [None,3])
+        if self.options['if_af']==1:
+            self.y_placeholder = tf.placeholder(tp, [None,3])
+        else:
+            self.y_placeholder = tf.placeholder(tp, [None,2])
         self.is_training = tf.placeholder(tf.bool)
 
     def alex_net_pretrained(self, X, is_training):
@@ -354,7 +357,7 @@ class ConvModel(object):
         if self.options['if_af'] == 1:
             af = y[0, 2]
             return vf, wu, af
-        else
+        else:
             return vf, wu
 
     def validate(self, X_val, y_val):
