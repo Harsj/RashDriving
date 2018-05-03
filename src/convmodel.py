@@ -68,8 +68,8 @@ slim = tf.contrib.slim
 trunc_normal = lambda stddev: tf.truncated_normal_initializer(0.0, stddev)
 
 def get_model_path(**options):
-    return SCRATCH_PATH + ("convmodel_speedmode_{}_convmode_{}_flowmode_{}/".format(
-        options['speedmode'], options['convmode'], options['flowmode']))
+    return SCRATCH_PATH + ("convmodel_speedmode_{}_convmode_{}_flowmode_{}_kitti_{}_af_{}/".format(
+        options['speedmode'], options['convmode'], options['flowmode'], options['if_kitti'], options['if_af']))
 
 class ConvModel(object):
     def __init__(self, options):
