@@ -115,7 +115,7 @@ def play(framePaths, **options):
         headers = loadHeader('{0}/../oxts'.format(path))
         im = cv2.imread(join(path, files[0]), cv2.IMREAD_COLOR)
         options = setInputShape(im, **options)
-    if optoins['if_kitti']==1:
+    if optoins['if_af']==1:
         labels = dict(vf=[], wu=[], af=[])
     else:
         labels = dict(vf=[], wu=[])
@@ -374,6 +374,8 @@ def main():
             type=float, help='tf method for weight initialization')
     parser.add_argument('--if_kitti', dest='if_kitti', default=0, nargs='?', type=int,
             help='use 1 for using kitti dataset, 0 otherwise')
+    parser.add_argument('--if_kitti', dest='if_af', default=0, nargs='?', type=int,
+            help='use 1 for using forward acceleration as model param, 0 otherwise')
     (options, args) = parser.parse_known_args()
 
     if (options.path==''):
