@@ -27,10 +27,6 @@ if __name__ == '__main__':
     from os.path import *
     usage = "Usage: video2png <videopath> <outputdir>"
     parser = argparse.ArgumentParser(description='Convert video to png')
-    parser.add_argument('--start-sec', dest='startsec', type=int, default=0, nargs='?', 
-            help='specify path for the image file')
-    parser.add_argument('--num-frame', dest='numframe', type=int, default=1, nargs='?', 
-            help='specify path for the image file')
     parser.add_argument('--crop_top', dest='crop_top', type=int, default=0, nargs='?', 
             help='Num Pixel to be cropped from top')
     parser.add_argument('--crop_bottom', dest='crop_bottom', type=int, default=0, nargs='?', 
@@ -70,21 +66,22 @@ if __name__ == '__main__':
     fcnt = int(cap.get(CAP_PROP_FRAME_COUNT))
     fps = int(cap.get(CAP_PROP_FPS))
 
-    startframe = fps * opts.startsec
+    startframe = 0
     cap.set(CAP_PROP_POS_FRAMES, startframe);
 
-    print('[video2png] Starting at {0}s (frame {1}). Total number of frames: {2}. Saving {3} frames...'.format(
-            opts.startsec, startframe, fcnt, opts.numframe))
+    print('[video2png] Starting at (frame {0}). Total number of frames: {1}. Saving frames...'.format(
+             startframe, fcnt))
 
     readsuc, img = cap.read()
-    i = startframe
-    while readsuc and i-startframe<fcnt:
+    motion = fileoxts.readline()
+    i = 0
+    framenum = startframe
+    while readsuc and framenum<fcnt-3:
         outFile = '%010d.png'% (i-startframe)
         outfileoxts = '%010d.txt'% (i-startframe)
         im1 = img[opts.crop_top:img.shape[0]-opts.crop_bottom, opts.crop_left:img.shape[1]-opts.crop_right]
         im2 = cv2.resize(im1,(opts.width,opts.height))
         cv2.imwrite(join(outdir,outFile),im2)
-        motion = fileoxts.readline()
         with open(join(outoxts,outfileoxts),'w') as foxts:
             foxts.write(motion)
         print(outFile)
@@ -93,7 +90,8 @@ if __name__ == '__main__':
         for J in range(3) :
             if i-startframe+J < fcnt :
                 readsuc, img = cap.read()
-                fileoxts.readline()
+                motion = fileoxts.readline()
+                framenum += 1
         i += 1
 
 		
