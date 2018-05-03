@@ -352,7 +352,7 @@ def main():
         help='use 1 cpu to trainspeed')
     parser.add_argument('--pcttrain', dest='pcttrain', nargs='?', default=0.7, type=float,
             help='Percentage of frames for training')
-    parser.add_argument('--valmode', dest='valmode', nargs='?', default=1, type=int,
+    parser.add_argument('--valmode', dest='valmode', nargs='?', default=0, type=int,
             help='valmode')
     parser.add_argument('--learning_rate', dest='learning_rate', nargs='?', default=0.001, type=float,
             help='Learning rate')
