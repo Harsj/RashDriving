@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 import argparse
 import os
@@ -21,7 +22,7 @@ if __name__ == '__main__':
             help='Number of frames skipped to next generate dataset')
     parser.add_argument('--skipfps', dest='skipfps', type=int, default=1, nargs='?', 
             help='set 9 for pilotguru, 1 for VMD')
-    parser.add_argument('--is-rash', dest='isrash', action='store_true',default=True, 
+    parser.add_argument('--is-rash', dest='isrash', action='store_true',default=False,
             help='set is rash or not')
 
     (opts, args) = parser.parse_known_args()
