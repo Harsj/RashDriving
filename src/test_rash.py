@@ -4,6 +4,8 @@ import os
 import pickle
 import numpy as np
 import scipy
+import os
+from os import listdir
 from sklearn.svm import NuSVC
 
 if __name__ == '__main__':
@@ -21,17 +23,14 @@ if __name__ == '__main__':
     X = []
     for i, file in enumerate(files):
         with open(join(path,file),'r') as fileobject:
-            b = pickle.load(fileObject)
+            b = pickle.load(fileobject)
             X.extend(b)
     
     print( "Starting Testing: data_len {0}" .format(len(X))
     
-    with open('\\'.join([model_path,"model.dump"]), 'w') as fileobject:
+    with open(join(model_path,"model.dump"), 'r') as fileobject:
         clf = pickle.load(fileobject)
 
     Y = clf.predict(X)
     
-    print("### SVM Model dumped ###")
-    
-    
-
+    print("### Test completed Video Has % rashness ###")

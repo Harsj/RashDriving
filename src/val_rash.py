@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import argparse
 import os
+from os import listdir
 import pickle
 import numpy as np
 import scipy
@@ -13,15 +14,15 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='test if driving is rash or not')
     (opts, args) = parser.parse_known_args()
     
-    model_path = arg[0]
-    val_dataset_path = arg[1]
+    model_path = args[0]
+    val_dataset_path = args[1]
     
     path = join(val_dataset_path,"rash")
     files = [f for f in listdir(path) if isfile(join(path, f)) and f.endswith('.dat')]
     X = []
     for i, file in enumerate(files):
         with open(join(path,file),'r') as fileobject:
-            b = pickle.load(fileObject)
+            b = pickle.load(fileobject)
             X.extend(b)
     rash_len = len(X)
     
@@ -29,17 +30,16 @@ if __name__ == '__main__':
     files = [f for f in listdir(path) if isfile(join(path, f)) and f.endswith('.dat')]
     for i, file in enumerate(files):
         with open(join(path,file),'r') as fileobject:
-            b = pickle.load(fileObject)
+            b = pickle.load(fileobject)
             X.extend(b)
 
-    print( "Starting Testing: rash_len {0} , normal_len {1}" .format(rash_len,(len(X)-rash_len))
+    print( "Starting Testing: rash_len {0} , normal_len {1}" .format(rash_len,(len(X)-rash_len)))
     
-    with open('\\'.join([model_path,"model.dump"]), 'w') as fileobject:
+    with open(join(model_path,"model.dump"), 'r') as fileobject:
         clf = pickle.load(fileobject)
 
     Y = clf.predict(X)
     
-    print("### SVM Model dumped ###")
-    
-    
+    print(Y)
 
+    print("### Validation Completed: Accuracy = % ###")
