@@ -102,7 +102,8 @@ def play(framePaths, **options):
         if os.path.isdir(out):
             shutil.rmtree(out)
         os.mkdir(out)
-        file_out = open(join(out,"motion.txt") , 'w')
+        os.mkdir(join(out,"output"))
+        file_out = open(join(join(out,"output"),"motion.txt") , 'w')
         test_mses = {}
 
     print('Playing video {}'.format(path))

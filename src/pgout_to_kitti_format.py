@@ -36,9 +36,9 @@ if __name__ == '__main__':
     parser.add_argument('--crop_right', dest='crop_right', type=int, default=0, nargs='?', 
             help='Num Pixel to be cropped from right')
     parser.add_argument('--height', dest='height', type=int, default=375, nargs='?', 
-            help='Num Pixel to be cropped from right')
+            help='Final height of output png')
     parser.add_argument('--width', dest='width', type=int, default=1242, nargs='?', 
-            help='Num Pixel to be cropped from right')
+            help='Final width of output png')
     (opts, args) = parser.parse_known_args()
     if (len(args) < 2):
         print(usage)
