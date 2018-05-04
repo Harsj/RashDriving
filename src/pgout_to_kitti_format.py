@@ -76,7 +76,8 @@ if __name__ == '__main__':
     motion = fileoxts.readline()
     i = 0
     framenum = startframe
-    while readsuc and framenum<fcnt-3:
+    bcontinue = True
+    while readsuc and framenum<fcnt-3 and bcontinue:
         outFile = '%010d.png'% (i-startframe)
         outfileoxts = '%010d.txt'% (i-startframe)
         im1 = img[opts.crop_top:img.shape[0]-opts.crop_bottom, opts.crop_left:img.shape[1]-opts.crop_right]
@@ -91,6 +92,13 @@ if __name__ == '__main__':
             if i-startframe+J < fcnt :
                 readsuc, img = cap.read()
                 motion = fileoxts.readline()
+                if motion == '':
+                    bcontinue = False
+                    break
+                mval = motion.split(' ')
+                if mval[0] == 'nan' or mval[1] == 'nan':
+                    bcontinue = False
+                    break
                 framenum += 1
         i += 1
 
