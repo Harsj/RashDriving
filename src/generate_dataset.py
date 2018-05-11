@@ -5,7 +5,7 @@ import os
 import pickle
 
 # usage example
-# python generate_dataset ..\own\2018_04_26-14_00_27\output\motion.txt ..\motion_data\ --sf=5 --ef=10 --skipfps=9 --skip=2 --is-rash
+# python generate_dataset ..\own\2018_04_26-14_00_27\output\motion.txt ..\motion_data\ --sf=5 --ef=10 --skipfps=9 --skip=2 --is-rash --type=1
 
 if __name__ == '__main__':
     import sys
@@ -14,6 +14,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='create dataset for rash driving')
     parser.add_argument('--sf', dest='startframe', type=int, default=0, nargs='?', 
             help='frame num from where rashness started')
+    parser.add_argument('--type', dest='type', type=int, default=0, nargs='?', 
+            help='0 - still, 1 - Acceleration, 2 - De-acceleration, 3 - Zig Zag, 4 - left, 5 - right')
     parser.add_argument('--ef', dest='endframe', type=int, default=1, nargs='?', 
             help='frame num from where rashness ends')
     parser.add_argument('--data-size', dest='size', type=int, default=20, nargs='?', 
@@ -37,11 +39,11 @@ if __name__ == '__main__':
     sf = opts.startframe/opts.skipfps
     if(ef < sf):
         print( "wrong start OR end")
-        exit(1)
+        exit(-1)
 
-    if(ef-sf > opts.size):
+    if(ef-sf >= opts.size):
         print( "patch size should be smaller than data_size.. May be divide it")
-        exit(1)
+        exit(-1)
     
     if ef - opts.size >= 0:
         pos = (ef + 1 - opts.size)*opts.skipfps
@@ -57,6 +59,8 @@ if __name__ == '__main__':
                 if line_num <= (sf - 1 + opts.size)*opts.skipfps :
                     if line_num % opts.skipfps == 0:
                         val = line.strip().split(' ')
+                        if val[0] == 'nan' or val[1] == 'nan':
+                            break;
                         data.append([float(val[0]),float(val[1])])
                         data_num += 1
                 else:
@@ -64,7 +68,11 @@ if __name__ == '__main__':
             line_num += 1
     
     #number of data points to be collected    
-    num = (data_num - opts.size)/opts.skip + 1   
+    num = (data_num - opts.size)/opts.skip + 1
+    if num <= 0:
+        print (" Proper Data not present in motion.txt.. Aborting..")
+        exit(-1)
+
     num_dataset = num
     dataset = []
     start_pos = 0
@@ -81,7 +89,7 @@ if __name__ == '__main__':
     #create file named vi + startframe + endframe + size + num
     #dump dataset into it
     outdir = join(args[1],vi.split('\\')[-3])
-    name = str(opts.startframe)+'-' + str(opts.endframe)+'-'+str(opts.size) +'-'+str(num_dataset)+'.dat'
+    name = str(opts.type) +'-'+ str(opts.startframe)+'-' + str(opts.endframe)+'-'+str(opts.size) +'-'+str(num_dataset)+'.dat'
 
     print('[generate_dataset] in file {0}. Total number of sets: {1}'.format(name, num_dataset))   
  
