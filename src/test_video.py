@@ -11,12 +11,6 @@ from matplotlib import pyplot as plt
 ## Demo Command
 #python test_video.py ..\motion_data_gt\model.dump ..\motion_data_gt\2018_05_06-16_44_29.png --motion_gt="..\rash\2018_05_06-16_44_29\output\motion.txt" --motion_pred="..\motion_pred\2018_05_06-16_44_29\motion.txt"
 
-data_size = 20
-skip = 5 # so 4 rash value in 1 datapoint size of 20 samples (20 samples == 6 secs)
-plt.figure(dpi=140)
-plt.grid(True)
-plt.xlabel("frames")
-
 def check_rash(model, data, data_num, skip) :
     dataset = []
     start_pos = 0
@@ -76,6 +70,11 @@ if __name__ == '__main__':
     if not isdir(os.path.dirname(args[1])):
         print("output folder doesn't exsist")
         exit(-1)
+    data_size = 20
+    skip = 5 # so 4 rash value in 1 datapoint size of 20 samples (20 samples == 6 secs)
+    plt.figure(dpi=140)
+    plt.grid(True)
+    plt.xlabel("frames")
     
     data_num_gt = 0
     if have_gt:
