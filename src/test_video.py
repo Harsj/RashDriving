@@ -9,7 +9,9 @@ from sklearn.svm import NuSVC
 from matplotlib import pyplot as plt
 
 ## Demo Command
-#python test_video.py ..\motion_data_gt\model.dump ..\motion_data_gt\2018_05_06-16_44_29.png --motion_gt="..\rash\2018_05_06-16_44_29\output\motion.txt" --motion_pred="..\motion_pred\2018_05_06-16_44_29\motion.txt"
+#python test_video.py ..\motion_data_gt\model.dump ..\motion_data_gt\2018_05_06-16_44_29.png --motion_gt="..\normal\2018_05_06-16_44_29\output\motion.txt" --motion_pred="..\motion_pred\2018_05_06-16_44_29\motion.txt"
+
+# scale angular velocity to have better loss calculation
 
 def check_rash(model, data, data_num, skip) :
     dataset = []
@@ -38,6 +40,8 @@ if __name__ == '__main__':
             help='Specify path for video motion.txt')
     parser.add_argument('--motion_pred', dest='motion_pred', action='store', default='',
             help='Specify path for video motion.txt')
+    parser.add_argument('--scale_factor', dest='scale', type=int, default=1, nargs='?',
+            help='how much to scale wu')
 
     (opts, args) = parser.parse_known_args()
     if (len(args) < 2):
@@ -45,6 +49,7 @@ if __name__ == '__main__':
         exit(-1)
     
     model = args[0]
+    scale = opts.scale
     if not isfile(model):
         print("Model path not correct")
         exit(-1)
@@ -86,7 +91,7 @@ if __name__ == '__main__':
                     val = line.strip().split(' ')
                     if val[0] == 'nan' or val[1] == 'nan':
                         break;
-                    data_gt.append([float(val[0]),float(val[1])])
+                    data_gt.append([float(val[0]),float(val[1])*scale])
                     data_num_gt += 1
                 line_num += 1
         
@@ -95,7 +100,7 @@ if __name__ == '__main__':
         out = np.repeat(out,skip)
         
         plt.plot(np.array(data_gt)[:,0], 'r', label='vf_gt')
-        plt.plot(np.array(data_gt)[:,1] * 5, 'g',  label='wu_gt')
+        plt.plot(np.array(data_gt)[:,1], 'g',  label='wu_gt')
         plt.plot(out, 'b', label='rash_gt')
         plt.axis([1, data_num_gt, -5, 20])
             
@@ -109,7 +114,7 @@ if __name__ == '__main__':
                 if val[0] == 'nan' or val[1] == 'nan':
                     print("*****Pred has nan ****** ERROR ERROR")
                     break;
-                data_pred.append([float(val[0]),float(val[1])])
+                data_pred.append([float(val[0]),float(val[1])*scale])
                 data_num_pred += 1
                 
         out_pred = check_rash(args[0], data_pred, data_num_pred, skip)
@@ -117,14 +122,15 @@ if __name__ == '__main__':
         out = np.repeat(out,skip)
         
         plt.plot(np.array(data_pred)[:,0], 'r', marker = 'o', ls='--', label='vf_pred')
-        plt.plot(np.array(data_pred)[:,1] * 5, 'g', marker = 'o', ls='--', label='wu_pred')
+        plt.plot(np.array(data_pred)[:,1], 'g', marker = 'o', ls='--', label='wu_pred')
         plt.plot(out, 'b', marker = 'o', ls='--', label='rash_pred')
         if data_num_gt < data_num_pred :
             plt.axis([1, data_num_pred, -5, 20])
  
     plt.legend(loc=2) 
     plt.savefig(args[1])
-    plt.show()        
+    #plt.show()
+    plt.pause(5)
     
     print(" Testing Completed ::  Check Plot")
     
