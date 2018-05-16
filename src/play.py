@@ -103,7 +103,12 @@ def play(framePaths, **options):
             shutil.rmtree(out)
         os.mkdir(out)
         os.mkdir(join(out,"output"))
-        file_out = open(join(join(out,"output"),"motion.txt") , 'w')
+        if options['if_af']==1 or options['if_af']==0:
+            file_out = open(join(join(out,"output"),"motion.txt") , 'w')
+        elif options['if_af']==2:
+            file_out = open(join(join(out,"output"),"motion_vf.txt") , 'w')
+        elif options['if_af']==3:
+            file_out = open(join(join(out,"output"),"motion_wu.txt") , 'w')
         test_mses = {}
 
     print('Playing video {}'.format(path))
@@ -118,8 +123,12 @@ def play(framePaths, **options):
         options = setInputShape(im, **options)
     if options['if_af']==1:
         labels = dict(vf=[], wu=[], af=[])
-    else:
+    elif options['if_af']==0:
         labels = dict(vf=[], wu=[])
+    elif options['if_af']==2:
+        labels = dict(vf=[])
+    elif options['if_af']==3:
+        labels = dict(wu=[])
     img = None
     icmp = None
     porg = None
@@ -213,6 +222,19 @@ def play(framePaths, **options):
                     state = 'Still'
                 info.append('Current state: {0}'.format(state))
                 file_out.write(str(speed) + " " + str(angle) + "\n")
+            elif 'vf' in ans:
+                speed,_ = ans['vf']
+                file_out.write(str(speed) + "\n")
+            elif 'wu' in ans:
+                angle,_ = ans['wu']
+                if abs(angle)<2:
+                    state = 'Forward'
+                elif angle < 0:
+                    state = 'Turning Right'
+                else:
+                    state = 'Turning Left'
+                info.append('Current state: {0}'.format(state))
+                file_out.write(str(angle) + "\n")
             # info.append('Current lights: [{0}]'.format(','.join(lights)))
             # if options['detsign']:
                 # info.append('Current signs: [{0}]'.format(','.join(signs)))
@@ -376,7 +398,7 @@ def main():
     parser.add_argument('--if_kitti', dest='if_kitti', default=0, nargs='?', type=int,
             help='use 1 for using kitti dataset, 0 otherwise')
     parser.add_argument('--if_af', dest='if_af', default=0, nargs='?', type=int,
-            help='use 1 for using forward acceleration as model param, 0 otherwise')
+            help='use 1 for (af,vf,wu), 0 for (vf,wu), 2 for (vf), 3 for (wu)')
     (options, args) = parser.parse_known_args()
 
     if (options.path==''):

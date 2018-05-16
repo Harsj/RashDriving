@@ -106,8 +106,10 @@ class ConvModel(object):
         self.X_placeholder = tf.placeholder(tp, [None, H, W, C])
         if self.options['if_af']==1:
             self.y_placeholder = tf.placeholder(tp, [None,3])
-        else:
+        elif self.options['if_af']==0:
             self.y_placeholder = tf.placeholder(tp, [None,2])
+        elif self.options['if_af']==2 or self.options['if_af']==3:
+            self.y_placeholder = tf.placeholder(tp, [None,1])
         self.is_training = tf.placeholder(tf.bool)
 
     def alex_net_pretrained(self, X, is_training):
@@ -352,13 +354,21 @@ class ConvModel(object):
         output_feed = self.pred
 
         y = self.session.run(output_feed, feed_dict=input_feed)
-        vf = y[0, 0]
-        wu = y[0, 1]
         if self.options['if_af'] == 1:
+            vf = y[0, 0]
+            wu = y[0, 1]
             af = y[0, 2]
             return vf, wu, af
-        else:
+        elif self.options['if_af'] == 0:
+            vf = y[0, 0]
+            wu = y[0, 1]
             return vf, wu
+        elif self.options['if_af'] == 2:
+            vf = y[0, 0]
+            return vf
+        elif self.options['if_af'] == 3:
+            wu = y[0, 0]
+            return wu
 
     def validate(self, X_val, y_val):
         """

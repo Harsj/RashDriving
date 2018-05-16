@@ -203,8 +203,12 @@ def loadData(framePaths, **options):
     headers = loadHeader('{0}/../oxts'.format(path))
     if options['if_af'] == 1:
         labels = dict(vf=[], wu=[], af=[])
-    else:
+    elif options['if_af'] == 0:
         labels = dict(vf=[], wu=[])
+    elif options['if_af'] == 2:
+        labels = dict(vf=[])
+    elif options['if_af'] == 3:
+        labels = dict(wu=[])
     im = None
     if flowmode in [2,3]:
         H = rseg; W = cseg
@@ -223,13 +227,21 @@ def loadData(framePaths, **options):
         # print('speedmode={} speedX.shape={}'.format(speedmode, np.array(speedX).shape))
         loadLabels(fn, headers, labels, '{0}/../oxts'.format(path))
     speedXs = np.reshape(np.array(speedXs), (-1, H,W,C))
-    vf = np.reshape(labels['vf'], (-1, 1))
-    wu = np.reshape(labels['wu'], (-1, 1))
     if options['if_af']==1:
+        vf = np.reshape(labels['vf'], (-1, 1))
+        wu = np.reshape(labels['wu'], (-1, 1))
         af = np.reshape(labels['af'], (-1, 1))
         speedYs = np.hstack((vf, wu, af))
-    else:
+    elif options['if_af']==0:
+        vf = np.reshape(labels['vf'], (-1, 1))
+        wu = np.reshape(labels['wu'], (-1, 1))
         speedYs = np.hstack((vf, wu))
+    elif options['if_af']==2:
+        vf = np.reshape(labels['vf'], (-1, 1))
+        speedYs = np.hstack((vf))
+    elif options['if_af']==3:
+        wu = np.reshape(labels['wu'], (-1, 1))
+        speedYs = np.hstack((wu))
     # print("speedXs.shape={} speedYs.shape={}".format(speedXs.shape, speedYs.shape))
     return ([speedXs, speedYs])
 
@@ -257,26 +269,48 @@ def predSpeed(im, prev, cur, labels, restored_model, labelpath, **options):
     elif model=='conv':
         if options['if_af']==1:
             vf, wu, af = restored_model.test(X_test)
-        else:
+        elif options['if_af']==0:
             vf,wu = restored_model.test(X_test)
+        elif options['if_af']==2:
+            vf = restored_model.test(X_test)
+        elif options['if_af']==3:
+            wu = restored_model.test(X_test)
         if os.path.isdir(labelpath):
-            gtvf = labels['vf'][-1]
-            gtwu = labels['wu'][-1]
             if options['if_af']==1:
+                gtvf = labels['vf'][-1]
+                gtwu = labels['wu'][-1]
                 gtaf = labels['af'][-1]
+            elif options['if_af']==0:
+                gtvf = labels['vf'][-1]
+                gtwu = labels['wu'][-1]
+            elif options['if_af']==2:
+                gtvf = labels['vf'][-1]
+            elif options['if_af']==3:
+                gtwu = labels['wu'][-1]
         else :
-            gtvf = 0
-            gtwu = 0
             if options['if_af']==1:
+                gtvf = 0
+                gtwu = 0
                 gtaf = 0
-        if mode=='all':
+            elif options['if_af']==0:
+                gtvf = 0
+                gtwu = 0
+            elif options['if_af']==2:
+                gtvf = 0
+            elif options['if_af']==3:
+                gtwu = 0
+        if mode=='all' and not options['if_af']==2:
             wu = np.rad2deg(wu)
-        if mode=='all':
+        if mode=='all' and not options['if_af']==2:
             gtwu = np.rad2deg(gtwu)
         if options['if_af']==1:
             res = dict(vf=(vf, gtvf), wu=(wu, gtwu), af=(af, gtaf))
-        else:
+        elif options['if_af']==0:
             res = dict(vf=(vf, gtvf), wu=(wu, gtwu))
+        elif options['if_af']==2:
+            res = dict(vf=(vf, gtvf))
+        elif options['if_af']==3:
+            res = dict(wu=(wu, gtwu))
     return im, res
 
 def trainSpeed(frameFns, **options):
