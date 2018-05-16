@@ -238,10 +238,10 @@ def loadData(framePaths, **options):
         speedYs = np.hstack((vf, wu))
     elif options['if_af']==2:
         vf = np.reshape(labels['vf'], (-1, 1))
-        speedYs = np.hstack((vf))
+        speedYs = np.hstack((vf,))
     elif options['if_af']==3:
         wu = np.reshape(labels['wu'], (-1, 1))
-        speedYs = np.hstack((wu))
+        speedYs = np.hstack((wu,))
     # print("speedXs.shape={} speedYs.shape={}".format(speedXs.shape, speedYs.shape))
     return ([speedXs, speedYs])
 
