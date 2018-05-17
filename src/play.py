@@ -98,7 +98,25 @@ def play(framePaths, **options):
     if mode in ['testspeed', 'all']:
         path = options['testpath']
         options['path'] = options['testpath']
-        out = './' + path.split('/')[-2]
+        if options['if_kitti']==1:
+            if options['if_af']==1:
+                out = './' + 'kitti_af_1/' + path.split('/')[-2]
+            elif options['if_af']==0:
+                out = './' + 'kitti_af_0/' + path.split('/')[-2]
+            elif options['if_af']==2:
+                out = './' + 'kitti_af_2/' + path.split('/')[-2]
+            elif options['if_af']==3:
+                out = './' + 'kitti_af_3/' + path.split('/')[-2]
+        else:
+            if options['if_af']==1:
+                out = './' + 'own_af_1/' + path.split('/')[-2]
+            elif options['if_af']==0:
+                out = './' + 'own_af_0/' + path.split('/')[-2]
+            elif options['if_af']==2:
+                out = './' + 'own_af_2/' + path.split('/')[-2]
+            elif options['if_af']==3:
+                out = './' + 'own_af_3/' + path.split('/')[-2]
+
         if os.path.isdir(out):
             shutil.rmtree(out)
         os.mkdir(out)
