@@ -299,10 +299,10 @@ def predSpeed(im, prev, cur, labels, restored_model, labelpath, **options):
                 gtvf = 0
             elif options['if_af']==3:
                 gtwu = 0
-        if mode=='all' and not options['if_af']==2:
-            wu = np.rad2deg(wu)
-        if mode=='all' and not options['if_af']==2:
-            gtwu = np.rad2deg(gtwu)
+        #if mode=='all' and not options['if_af']==2:
+            #wu = np.rad2deg(wu)
+        #if mode=='all' and not options['if_af']==2:
+            #gtwu = np.rad2deg(gtwu)
         if options['if_af']==1:
             res = dict(vf=(vf, gtvf), wu=(wu, gtwu), af=(af, gtaf))
         elif options['if_af']==0:

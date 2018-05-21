@@ -224,11 +224,14 @@ def play(framePaths, **options):
                 pred, gt = ans[k]
                 mse = (pred - gt) ** 2
                 test_mses[k].append(mse)
+                if k=='wu':
+                    pred = np.rad2deg(pred)
+                    gt = np.rad2deg(gt)
                 info.append('Predicted {}: {} {}. Ground Truth: {} {}'.format(fullname[k], pred,
                     unit[k], gt, unit[k]))
             if 'vf' in ans and 'wu' in ans:
                 speed,_ = ans['vf']
-                angle,_ = ans['wu']
+                angle,_ = np.rad2deg(ans['wu'])
                 if (speed > 2):
                     if abs(angle)<2:
                         state = 'Forward'
@@ -239,12 +242,12 @@ def play(framePaths, **options):
                 else:
                     state = 'Still'
                 info.append('Current state: {0}'.format(state))
-                file_out.write(str(speed) + " " + str(angle) + "\n")
+                file_out.write(str(speed) + " " + str(ans['wu']) + "\n")
             elif 'vf' in ans:
                 speed,_ = ans['vf']
                 file_out.write(str(speed) + "\n")
             elif 'wu' in ans:
-                angle,_ = ans['wu']
+                angle,_ = np.rad2deg(ans['wu'])
                 if abs(angle)<2:
                     state = 'Forward'
                 elif angle < 0:
@@ -252,7 +255,7 @@ def play(framePaths, **options):
                 else:
                     state = 'Turning Left'
                 info.append('Current state: {0}'.format(state))
-                file_out.write(str(angle) + "\n")
+                file_out.write(str(ans['wu']) + "\n")
             # info.append('Current lights: [{0}]'.format(','.join(lights)))
             # if options['detsign']:
                 # info.append('Current signs: [{0}]'.format(','.join(signs)))
