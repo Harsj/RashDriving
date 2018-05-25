@@ -66,6 +66,10 @@ if __name__ == '__main__':
             help='Specify path for video motion.txt')
     parser.add_argument('--motion_pred', dest='motion_pred', action='store', default='',
             help='Specify path for video motion.txt')
+    parser.add_argument('--video', dest='video', action='store', default='',
+            help='Specify path for video mpeg file')
+    parser.add_argument('--video_out', dest='video_out', action='store', default='',
+            help='Specify path for output video mpeg file')
     parser.add_argument('--scale_factor', dest='scale', type=int, default=1, nargs='?',
             help='how much to scale wu')
 
@@ -175,6 +179,45 @@ if __name__ == '__main__':
             sqerror = sqerror + ((out_gt[i-1] - out_pred[i-1])**2)
         mse = sqerror/length
         print("MSE calculate = {0}" .format(mse))
+
+    if have_pred and not opts.video == '' and not opts.video_out == '':
+        import cv2
+        CAP_PROP_FRAME_COUNT = cv2.CAP_PROP_FRAME_COUNT
+        CAP_PROP_FPS = cv2.CAP_PROP_FPS
+        CAP_PROP_POS_FRAMES = cv2.CAP_PROP_POS_FRAMES
+        cap_in = cv2.VideoCapture(opts.video)
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')
+        fps = int(cap_in.get(CAP_PROP_FPS))
+        vout = cv2.VideoWriter(opts.video_out,fourcc, fps, (640,360))
+        cap_in.set(CAP_PROP_POS_FRAMES, 0);
+        readsuc, img = cap_in.read()
+        i = 0
+        text = 'NORMAL'
+        colorr = (0,0,0)
+        delay =6
+        while readsuc:
+            for J in range(9*delay) :
+                cv2.putText(img, text, (500,300),fontFace=cv2.FONT_HERSHEY_SIMPLEX,fontScale=4, color = colorr,thickness=8)
+                img = cv2.resize(img,(640,360))
+                vout.write(img)
+                readsuc, img = cap_in.read()
+                if not readsuc:
+                    break
+            if i < length:
+                rash_out = out_pred[i]
+                i += 1
+            else:
+                rash_out = 0
+            delay = 5
+            if rash_out <= 0.35:
+                text = 'NORMAL'
+                colorr = (0,255,0)
+            elif rash_out >= 0.7:
+                text = 'RASH'
+                colorr = (0,0,255)
+            else:
+                text = 'CAREFUL'
+                colorr = (0,255,255)
 
     print(" Testing Completed :: MSE =   Check Plot")
 
