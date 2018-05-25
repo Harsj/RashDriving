@@ -94,6 +94,20 @@ if __name__ == '__main__':
 
             score = clf.score(X_test, Y_test)
             print(score)
+
+    elif opts.method ==3:
+        # Cross validation training
+        from sklearn.neural_network import MLPClassifier
+        clf = MLPClassifier(solver='lbfgs', alpha=1e-4, hidden_layer_sizes=(50, 25), random_state=1, warm_start=True)
+        for train, test in rkf.split(X):
+            X_train = [X[idx] for idx in list(train)]
+            Y_train = [Y[idx] for idx in list(train)]
+            X_test = [X[idx] for idx in list(test)]
+            Y_test = [Y[idx] for idx in list(test)]
+
+            score = clf.fit(X_train, Y_train).score(X_test, Y_test)
+            print(score)
+
     with open(join(dataset_path,"model.dump"), 'w') as fileobject:
         pickle.dump(clf,fileobject)
         
