@@ -129,7 +129,7 @@ if __name__ == '__main__':
         plt.plot(np.array(data_gt)[:,1], 'g',  label='wu_gt')
         plt.plot(out, 'b', label='rash_gt')
         plt.axis([1, data_num_gt, -5, 20])
-            
+        length = len(out_gt)
                 
     if have_pred:
         data_num_pred = 0
@@ -147,7 +147,6 @@ if __name__ == '__main__':
                 arr_wu.append(np.deg2rad(float(val[1]))*scale)
                 data_num_pred += 1
 
-                
         arr_vf_s = list(savitzky_golay(np.array(arr_vf),25,3))
         arr_wu_s = list(savitzky_golay(np.array(arr_wu),25,3))
         #arr_vf_s = arr_vf
@@ -157,17 +156,25 @@ if __name__ == '__main__':
         out_pred = check_rash(args[0], data_pred, data_num_pred, skip)
         out = out_pred*5 ## Will be good to display
         out = np.repeat(out,skip)
-        
+
         plt.plot(np.array(data_pred)[:,0], 'r', ls='--', label='vf_pred')
         plt.plot(np.array(data_pred)[:,1], 'm', ls='-', label='wu_pred')
         plt.plot(out, 'b', ls='--', label='rash_pred')
         if data_num_gt < data_num_pred :
             plt.axis([1, data_num_pred, -5, 20])
- 
+        else:
+            length = len(out_pred)
+
     plt.legend(loc=2) 
     plt.savefig(args[1])
     #plt.show()
     plt.pause(5)
-    
-    print(" Testing Completed ::  Check Plot")
-    
+    if have_gt and have_pred:
+        sqerror = 0
+        for i in range(length):
+            sqerror = sqerror + ((out_gt[i-1] - out_pred[i-1])**2)
+        mse = sqerror/length
+        print("MSE calculate = {0}" .format(mse))
+
+    print(" Testing Completed :: MSE =   Check Plot")
+
