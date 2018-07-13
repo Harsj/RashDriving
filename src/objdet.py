@@ -223,6 +223,8 @@ def initSession(**options):
     global sess, net
     if sess is not None and net is not None:
         return
+
+    tf.reset_default_graph()
     # init session
     sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True))
     # load network

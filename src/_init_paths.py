@@ -32,5 +32,6 @@ add_path(lib_path)
 DATA_PATH='../driving/'
 SIGN_PATH='../signs/'
 KITTI_PATH='../kitti/'
+OWN_PATH='../own/'
 SCRATCH_PATH = '../scratch/'
 Faster_RCNN_PATH = osp.join(this_dir, '..', 'Faster-RCNN_TF/')

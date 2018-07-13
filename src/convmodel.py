@@ -68,8 +68,8 @@ slim = tf.contrib.slim
 trunc_normal = lambda stddev: tf.truncated_normal_initializer(0.0, stddev)
 
 def get_model_path(**options):
-    return SCRATCH_PATH + ("convmodel_speedmode_{}_convmode_{}_flowmode_{}/".format(
-        options['speedmode'], options['convmode'], options['flowmode']))
+    return SCRATCH_PATH + ("convmodel_speedmode_{}_convmode_{}_flowmode_{}_kitti_{}_af_{}/".format(
+        options['speedmode'], options['convmode'], options['flowmode'], options['if_kitti'], options['if_af']))
 
 class ConvModel(object):
     def __init__(self, options):
@@ -90,7 +90,7 @@ class ConvModel(object):
         self.setup_placeholders()
         self.setup_system()
         self.setup_loss()
-        self.saver = tf.train.Saver(max_to_keep=50)
+        self.saver = tf.train.Saver(max_to_keep=50,write_version=tf.train.SaverDef.V1)
 
     def close(self):
         self.session.close()
@@ -104,7 +104,12 @@ class ConvModel(object):
         if flowmode in [2,3]:
             H = rseg; W = cseg;
         self.X_placeholder = tf.placeholder(tp, [None, H, W, C])
-        self.y_placeholder = tf.placeholder(tp, [None,3])
+        if self.options['if_af']==1:
+            self.y_placeholder = tf.placeholder(tp, [None,3])
+        elif self.options['if_af']==0:
+            self.y_placeholder = tf.placeholder(tp, [None,2])
+        elif self.options['if_af']==2 or self.options['if_af']==3:
+            self.y_placeholder = tf.placeholder(tp, [None,1])
         self.is_training = tf.placeholder(tf.bool)
 
     def alex_net_pretrained(self, X, is_training):
@@ -349,11 +354,21 @@ class ConvModel(object):
         output_feed = self.pred
 
         y = self.session.run(output_feed, feed_dict=input_feed)
-        vf = y[0, 0]
-        wu = y[0, 1]
-        af = y[0, 2]
-
-        return vf, wu, af
+        if self.options['if_af'] == 1:
+            vf = y[0, 0]
+            wu = y[0, 1]
+            af = y[0, 2]
+            return vf, wu, af
+        elif self.options['if_af'] == 0:
+            vf = y[0, 0]
+            wu = y[0, 1]
+            return vf, wu
+        elif self.options['if_af'] == 2:
+            vf = y[0, 0]
+            return vf
+        elif self.options['if_af'] == 3:
+            wu = y[0, 0]
+            return wu
 
     def validate(self, X_val, y_val):
         """
