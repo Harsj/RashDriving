@@ -1,0 +1,138 @@
+1) 2018_04_26-14_00_00
+	7.266	- 10.466	--> fast start
+		python generate_dataset.py ..\rash\2018_04_26-14_00_00\output\motion.txt ..\motion_data_gt\ --sf=170 --ef=300 --skipfps=9 --skip=2 --is-rash --type=1
+		 
+	10.466	- 13.666	--> fast stop
+		python generate_dataset.py ..\rash\2018_04_26-14_00_00\output\motion.txt ..\motion_data_gt\ --sf=350 --ef=450 --skipfps=9 --skip=2 --is-rash --type=2
+		 
+	
+
+2) 2018_04_26-14_00_27
+	12-15 --> left
+		python generate_dataset.py ..\rash\2018_04_26-14_00_27\output\motion.txt ..\motion_data_gt\ --sf=280 --ef=420 --skipfps=9 --skip=2 --is-rash --type=4
+		 
+	13-17 --> zigzag
+		python generate_dataset.py ..\rash\2018_04_26-14_00_27\output\motion.txt ..\motion_data_gt\ --sf=390 --ef=510 --skipfps=9 --skip=2 --is-rash --type=3
+		
+	16-20 --> right
+		python generate_dataset.py ..\rash\2018_04_26-14_00_27\output\motion.txt ..\motion_data_gt\ --sf=480 --ef=620 --skipfps=9 --skip=2 --is-rash --type=5
+		 
+		
+3) 2018_04_26-14_01_31
+
+		
+4) 2018_05_06-17_01_24
+	0.23 - 0.27 --> right
+		python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\motion_data_gt\ --sf=680 --ef=790 --skipfps=9 --skip=2 --is-rash --type=5
+	
+	0.33 - 0.39 --> left
+		python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\motion_data_gt\ --sf=980 --ef=1110 --skipfps=9 --skip=2 --is-rash --type=4
+	
+	1.39 - 1.42 mins --> fast stop
+		python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\motion_data_gt\ --sf=2970 --ef=3070 --skipfps=9 --skip=2 --is-rash --type=2
+		 
+			
+5) 2018_05_06-17_03_11
+	0.35 - 0.41 --> fast right
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=1110 --ef=1200 --skipfps=9 --skip=2 --is-rash --type=5
+	
+	47 - 52 --> left
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=1400 --ef=1540 --skipfps=9 --skip=2 --is-rash --type=4
+
+	1.54 - 1.56 --> zigzag
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=3420 --ef=3510 --skipfps=9 --skip=2 --is-rash --type=3
+		 
+	2.12 - 2.16 --> fast stop
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=3960 --ef=4090 --skipfps=9 --skip=2 --is-rash --type=2
+	
+6) 2018_05_06-17_05_34
+	0.14 - 0.17 --> zigzag
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=400 --ef=520 --skipfps=9 --skip=2 --is-rash --type=3
+		 
+		
+	0.18 - 0.26 --> fast left
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=520 --ef=650 --skipfps=9 --skip=2 --is-rash --type=4
+		 
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=670 --ef=790 --skipfps=9 --skip=2 --is-rash --type=4
+		 
+		
+	0.31 - 0.33 --> zigzag
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=900 --ef=1020 --skipfps=9 --skip=2 --is-rash --type=3
+		 
+		
+	0.36 - 0.41 --> fast right
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=1110 --ef=1220 --skipfps=9 --skip=2 --is-rash --type=5
+		
+	0.43 - 0.47 --> zigzag
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=1290 --ef=1410 --skipfps=9 --skip=2 --is-rash --type=3
+		 
+	1.10 - 1.14 --> fast right
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=2100 --ef=2220 --skipfps=9 --skip=2 --is-rash --type=5
+		
+	1.27 - 1.31 --> zigzag
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=2610 --ef=2730 --skipfps=9 --skip=2 --is-rash --type=3
+		
+		
+7) 2018_05_06-17_07_47
+	22 - 27 --> left
+		python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\motion_data_gt\ --sf=680 --ef=800 --skipfps=9 --skip=2 --is-rash --type=4
+
+	0.42 - 0.47 --> zigzag
+		python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\motion_data_gt\ --sf=1260 --ef=1410 --skipfps=9 --skip=2 --is-rash --type=3
+	
+	0.45 - 0.50 --> zigzag
+	    python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\motion_data_gt\ --sf=1350 --ef=1500 --skipfps=9 --skip=2 --is-rash --type=3
+		
+	0.56 - 1.02 --> fast stop
+		python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\motion_data_gt\ --sf=1650 --ef=1800 --skipfps=9 --skip=2 --is-rash --type=2
+		 
+		python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\motion_data_gt\ --sf=1740 --ef=1870 --skipfps=9 --skip=2 --is-rash --type=2
+		 
+		
+8) 2018_05_06-17_08_57
+	0.42 - 0.46 --> fast left
+		python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\motion_data_gt\ --sf=1260 --ef=1390 --skipfps=9 --skip=2 --is-rash --type=4
+
+	51 - 56 --> fast right
+		python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\motion_data_gt\ --sf=1530 --ef=1680 --skipfps=9 --skip=2 --is-rash --type=5
+		 
+		
+	1.01 - 1.04 --> left
+		python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\motion_data_gt\ --sf=1830 --ef=1920 --skipfps=9 --skip=2 --is-rash --type=4
+		 
+		
+	1.11 - 1.15 --> fast stop
+		python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\motion_data_gt\ --sf=2130 --ef=2250 --skipfps=9 --skip=2 --is-rash --type=2
+		 
+
+		
+9) 2018_05_06-17_10_18
+	0.18 - 0.24 --> fast left
+		python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\motion_data_gt\ --sf=540 --ef=660 --skipfps=9 --skip=2 --is-rash --type=4
+		 
+		python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\motion_data_gt\ --sf=600 --ef=750 --skipfps=9 --skip=2 --is-rash --type=4
+		 
+	
+	0.23 - 0.27 --> zigzag
+		python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\motion_data_gt\ --sf=700 --ef=810 --skipfps=9 --skip=2 --is-rash --type=3
+		 
+	   
+	0.42 - 0.46 --> fast left
+		python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\motion_data_gt\ --sf=1260 --ef=1390 --skipfps=9 --skip=2 --is-rash --type=4
+		 
+	
+	0.55 - 0.58 --> fast left
+		python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\motion_data_gt\ --sf=1650 --ef=1750 --skipfps=9 --skip=2 --is-rash --type=4
+		 
+	
+	1.07 - 1.10 --> fast right
+		python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\motion_data_gt\ --sf=2010 --ef=2100 --skipfps=9 --skip=2 --is-rash --type=5
+		 
+	
+	1.08 - 1.13 --> zigzag
+		python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\motion_data_gt\ --sf=2040 --ef=2190 --skipfps=9 --skip=2 --is-rash --type=3
+		 
+	
+	1.11 - 1.16 --> fast left
+		python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\motion_data_gt\ --sf=2150 --ef=2290 --skipfps=9 --skip=2 --is-rash --type=4
+		 

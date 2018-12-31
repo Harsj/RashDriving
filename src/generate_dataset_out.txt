@@ -1,0 +1,371 @@
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_04_26-14_00_00\output\motion.txt ..\moti
+on_data_gt\ --sf=0 --ef=170 --skipfps=9 --skip=2 --type=0
+[generate_dataset] in file 0-0-170-20-1.dat. Total number of sets: 1
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_04_26-14_00_27\output\motion.txt ..\moti
+on_data_gt\ --sf=150 --ef=300 --skipfps=9 --skip=2 --type=4
+[generate_dataset] in file 4-150-300-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_04_26-14_00_27\output\motion.txt ..\moti
+on_data_gt\ --sf=670 --ef=820 --skipfps=9 --skip=2 --type=4
+[generate_dataset] in file 4-670-820-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_04_26-14_01_31\output\motion.txt ..\moti
+on_data_gt\ --sf=10 --ef=180 --skipfps=9 --skip=2 --type=1
+[generate_dataset] in file 1-10-180-20-1.dat. Total number of sets: 1
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_04_26-14_01_31\output\motion.txt ..\moti
+on_data_gt\ --sf=600 --ef=720 --skipfps=9 --skip=2 --type=2
+[generate_dataset] in file 2-600-720-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_04_26-14_01_31\output\motion.txt ..\moti
+on_data_gt\ --sf=730 --ef=850 --skipfps=9 --skip=2 --type=0
+[generate_dataset] in file 0-730-850-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\moti
+on_data_gt\ --sf=300 --ef=420 --skipfps=9 --skip=2 --type=1
+[generate_dataset] in file 1-300-420-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\moti
+on_data_gt\ --sf=1590 --ef=1650 --skipfps=9 --skip=2 --type=0
+[generate_dataset] in file 0-1590-1650-20-7.dat. Total number of sets: 7
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\moti
+on_data_gt\ --sf=1700 --ef=1810 --skipfps=9 --skip=2 --type=0
+[generate_dataset] in file 0-1700-1810-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\moti
+on_data_gt\ --sf=1900 --ef=2000 --skipfps=9 --skip=2 --type=0
+[generate_dataset] in file 0-1900-2000-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\moti
+on_data_gt\ --sf=2230 --ef=2340 --skipfps=9 --skip=2 --type=5
+[generate_dataset] in file 5-2230-2340-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\moti
+on_data_gt\ --sf=2460 --ef=2560 --skipfps=9 --skip=2 --type=0
+[generate_dataset] in file 0-2460-2560-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\moti
+on_data_gt\ --sf=2770 --ef=2900 --skipfps=9 --skip=2 --type=2
+[generate_dataset] in file 2-2770-2900-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=50 --ef=150 --skipfps=9 --skip=2 --type=1
+[generate_dataset] in file 1-50-150-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=260 --ef=310 --skipfps=9 --skip=2 --type=1
+[generate_dataset] in file 1-260-310-20-7.dat. Total number of sets: 7
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=540 --ef=600 --skipfps=9 --skip=2 --type=4
+[generate_dataset] in file 4-540-600-20-7.dat. Total number of sets: 7
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=770 --ef=910 --skipfps=9 --skip=2 --type=5
+[generate_dataset] in file 5-770-910-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=1700 --ef=1800 --skipfps=9 --skip=2 --type=1
+[generate_dataset] in file 1-1700-1800-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=1850 --ef=1950 --skipfps=9 --skip=2 --type=5
+[generate_dataset] in file 5-1850-1950-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=1850 --ef=1950 --skipfps=9 --skip=2 --type=1
+[generate_dataset] in file 1-1850-1950-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=2130 --ef=2230 --skipfps=9 --skip=2 --type=0
+[generate_dataset] in file 0-2130-2230-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=2460 --ef=2500 --skipfps=9 --skip=2 --type=4
+[generate_dataset] in file 4-2460-2500-20-8.dat. Total number of sets: 8
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=30 --ef=180 --skipfps=9 --skip=2 --type=3
+[generate_dataset] in file 3-30-180-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=260 --ef=340 --skipfps=9 --skip=2 --type=1
+[generate_dataset] in file 1-260-340-20-6.dat. Total number of sets: 6
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=1500 --ef=1600 --skipfps=9 --skip=2 --type=2
+[generate_dataset] in file 2-1500-1600-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=3450 --ef=3550 --skipfps=9 --skip=2 --type=2
+[generate_dataset] in file 2-3450-3550-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=3600 --ef=3750 --skipfps=9 --skip=2 --type=0
+[generate_dataset] in file 0-3600-3750-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\moti
+on_data_gt\ --sf=30 --ef=160 --skipfps=9 --skip=2 --type=5
+[generate_dataset] in file 5-30-160-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\moti
+on_data_gt\ --sf=270 --ef=350 --skipfps=9 --skip=2 --type=1
+[generate_dataset] in file 1-270-350-20-6.dat. Total number of sets: 6
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\moti
+on_data_gt\ --sf=450 --ef=550 --skipfps=9 --skip=2 --type=1
+[generate_dataset] in file 1-450-550-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\moti
+on_data_gt\ --sf=930 --ef=1080 --skipfps=9 --skip=2 --type=4
+[generate_dataset] in file 4-930-1080-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\moti
+on_data_gt\ --sf=1200 --ef=1260 --skipfps=9 --skip=2 --type=5
+[generate_dataset] in file 5-1200-1260-20-7.dat. Total number of sets: 7
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\moti
+on_data_gt\ --sf=40 --ef=130 --skipfps=9 --skip=2 --type=1
+[generate_dataset] in file 1-40-130-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\moti
+on_data_gt\ --sf=250 --ef=350 --skipfps=9 --skip=2 --type=1
+[generate_dataset] in file 1-250-350-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\moti
+on_data_gt\ --sf=640 --ef=770 --skipfps=9 --skip=2 --type=5
+[generate_dataset] in file 5-640-770-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\moti
+on_data_gt\ --sf=930 --ef=1080 --skipfps=9 --skip=2 --type=4
+[generate_dataset] in file 4-930-1080-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\moti
+on_data_gt\ --sf=40 --ef=130 --skipfps=9 --skip=2 --type=1
+[generate_dataset] in file 1-40-130-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_04_26-14_00_00\output\motion.txt ..\moti
+on_data_gt\ --sf=170 --ef=300 --skipfps=9 --skip=2 --is-rash --type=1
+[generate_dataset] in file 1-170-300-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_04_26-14_00_00\output\motion.txt ..\moti
+on_data_gt\ --sf=350 --ef=450 --skipfps=9 --skip=2 --is-rash --type=2
+[generate_dataset] in file 2-350-450-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_04_26-14_00_27\output\motion.txt ..\moti
+on_data_gt\ --sf=280 --ef=420 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-280-420-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_04_26-14_00_27\output\motion.txt ..\moti
+on_data_gt\ --sf=300 --ef=510 --skipfps=9 --skip=2 --is-rash --type=3
+[generate_dataset] in file 3-390-510-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_04_26-14_00_27\output\motion.txt ..\moti
+on_data_gt\ --sf=480 --ef=620 --skipfps=9 --skip=2 --is-rash --type=5
+[generate_dataset] in file 5-480-620-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\moti
+on_data_gt\ --sf=680 --ef=790 --skipfps=9 --skip=2 --is-rash --type=5
+[generate_dataset] in file 5-680-790-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\moti
+on_data_gt\ --sf=980 --ef=1110 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-980-1110-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\moti
+on_data_gt\ --sf=2970 --ef=3070 --skipfps=9 --skip=2 --is-rash --type=2
+[generate_dataset] in file 2-2970-3070-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=1110 --ef=1200 --skipfps=9 --skip=2 --is-rash --type=5
+[generate_dataset] in file 5-1110-1200-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=1400 --ef=1540 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-1400-1540-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=3420 --ef=3510 --skipfps=9 --skip=2 --is-rash --type=3
+[generate_dataset] in file 3-3420-3510-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\moti
+on_data_gt\ --sf=3960 --ef=4090 --skipfps=9 --skip=2 --is-rash --type=2
+[generate_dataset] in file 2-3960-4090-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=400 --ef=520 --skipfps=9 --skip=2 --is-rash --type=3
+[generate_dataset] in file 3-400-520-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=520 --ef=650 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-520-650-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=670 --ef=790 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-670-790-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=900 --ef=1020 --skipfps=9 --skip=2 --is-rash --type=3
+[generate_dataset] in file 3-900-1020-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=1110 --ef=1220 --skipfps=9 --skip=2 --is-rash --type=5
+[generate_dataset] in file 5-1110-1220-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=1290 --ef=1410 --skipfps=9 --skip=2 --is-rash --type=3
+[generate_dataset] in file 3-1290-1410-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=2100 --ef=2220 --skipfps=9 --skip=2 --is-rash --type=5
+[generate_dataset] in file 5-2100-2220-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\moti
+on_data_gt\ --sf=2610 --ef=2730 --skipfps=9 --skip=2 --is-rash --type=3
+[generate_dataset] in file 3-2610-2730-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\moti
+on_data_gt\ --sf=680 --ef=800 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-680-800-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\moti
+on_data_gt\ --sf=1260 --ef=1410 --skipfps=9 --skip=2 --is-rash --type=3
+[generate_dataset] in file 3-1260-1410-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\moti
+on_data_gt\ --sf=1350 --ef=1500 --skipfps=9 --skip=2 --is-rash --type=3
+[generate_dataset] in file 3-1350-1500-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\moti
+on_data_gt\ --sf=1650 --ef=1800 --skipfps=9 --skip=2 --is-rash --type=2
+[generate_dataset] in file 2-1650-1800-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\moti
+on_data_gt\ --sf=1740 --ef=1870 --skipfps=9 --skip=2 --is-rash --type=2
+[generate_dataset] in file 2-1740-1870-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\moti
+on_data_gt\ --sf=1260 --ef=1390 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-1260-1390-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\moti
+on_data_gt\ --sf=1530 --ef=1680 --skipfps=9 --skip=2 --is-rash --type=5
+[generate_dataset] in file 5-1530-1680-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\moti
+on_data_gt\ --sf=1830 --ef=1920 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-1830-1920-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\moti
+on_data_gt\ --sf=2130 --ef=2250 --skipfps=9 --skip=2 --is-rash --type=2
+[generate_dataset] in file 2-2130-2250-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\moti
+on_data_gt\ --sf=540 --ef=660 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-540-660-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\moti
+on_data_gt\ --sf=600 --ef=750 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-600-750-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\moti
+on_data_gt\ --sf=700 --ef=810 --skipfps=9 --skip=2 --is-rash --type=3
+[generate_dataset] in file 3-700-810-20-4.dat. Total number of sets: 4
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\moti
+on_data_gt\ --sf=1260 --ef=1390 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-1260-1390-20-3.dat. Total number of sets: 3
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\moti
+on_data_gt\ --sf=1650 --ef=1750 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-1650-1750-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\moti
+on_data_gt\ --sf=2010 --ef=2100 --skipfps=9 --skip=2 --is-rash --type=5
+[generate_dataset] in file 5-2010-2100-20-5.dat. Total number of sets: 5
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\moti
+on_data_gt\ --sf=2040 --ef=2190 --skipfps=9 --skip=2 --is-rash --type=3
+[generate_dataset] in file 3-2040-2190-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\moti
+on_data_gt\ --sf=2150 --ef=2290 --skipfps=9 --skip=2 --is-rash --type=4
+[generate_dataset] in file 4-2150-2290-20-2.dat. Total number of sets: 2
+### dump done###
+
+E:\mtech\github\cs231n\src>

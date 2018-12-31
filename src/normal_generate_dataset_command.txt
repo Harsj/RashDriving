@@ -1,0 +1,142 @@
+1) 2018_04_26-14_00_00
+	1 - 6	--> start
+		python generate_dataset.py ..\rash\2018_04_26-14_00_00\output\motion.txt ..\motion_data_gt\ --sf=0 --ef=170 --skipfps=9 --skip=2 --type=0
+		 
+
+2) 2018_04_26-14_00_27
+	5 - 10 --> left
+		python generate_dataset.py ..\rash\2018_04_26-14_00_27\output\motion.txt ..\motion_data_gt\ --sf=150 --ef=300 --skipfps=9 --skip=2 --type=4
+		 
+	21 - 27 --> left
+		python generate_dataset.py ..\rash\2018_04_26-14_00_27\output\motion.txt ..\motion_data_gt\ --sf=670 --ef=820 --skipfps=9 --skip=2 --type=4
+		 
+		
+3) 2018_04_26-14_01_31
+	2-6 --> acceleration
+		python generate_dataset.py ..\rash\2018_04_26-14_01_31\output\motion.txt ..\motion_data_gt\ --sf=10 --ef=180 --skipfps=9 --skip=2 --type=1
+		 
+		
+	18-23 --> de-acceleration
+		python generate_dataset.py ..\rash\2018_04_26-14_01_31\output\motion.txt ..\motion_data_gt\ --sf=600 --ef=720 --skipfps=9 --skip=2 --type=2
+		 
+	
+	23- 25 --> still
+	    python generate_dataset.py ..\rash\2018_04_26-14_01_31\output\motion.txt ..\motion_data_gt\ --sf=730 --ef=850 --skipfps=9 --skip=2 --type=0
+		
+		
+4) 2018_05_06-17_01_24
+	 11 - 16 --> acceleration
+		python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\motion_data_gt\ --sf=300 --ef=420 --skipfps=9 --skip=2 --type=1
+	
+	0.51 - 0.58 --> constant straight
+		python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\motion_data_gt\ --sf=1590 --ef=1650 --skipfps=9 --skip=2 --type=0
+		 
+		python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\motion_data_gt\ --sf=1700 --ef=1810 --skipfps=9 --skip=2 --type=0
+		
+	1.02 - 1.08 -->constant straight
+		python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\motion_data_gt\ --sf=1900 --ef=2000 --skipfps=9 --skip=2 --type=0
+		 
+		
+	1.14 - 1.18 --> right
+		python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\motion_data_gt\ --sf=2230 --ef=2340 --skipfps=9 --skip=2 --type=5
+		 
+		
+	1.22 - 1.27 -->constant straight
+		python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\motion_data_gt\ --sf=2460 --ef=2560 --skipfps=9 --skip=2 --type=0
+		 
+		
+	1.32 - 1.38 --> de-acceleration
+		python generate_dataset.py ..\rash\2018_05_06-17_01_24\output\motion.txt ..\motion_data_gt\ --sf=2770 --ef=2900 --skipfps=9 --skip=2 --type=2
+		 
+	
+5) 2018_05_06-17_03_11
+	0-14 --> acceleration
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=50 --ef=150 --skipfps=9 --skip=2 --type=1
+		 
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=260 --ef=310 --skipfps=9 --skip=2 --type=1
+		 
+		
+	16 - 22 --> left
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=540 --ef=600 --skipfps=9 --skip=2 --type=4
+		 
+	
+	26 - 31 --> right
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=770 --ef=910 --skipfps=9 --skip=2 --type=5
+		 
+	
+	55 - 1.01 --> acceleration
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=1700 --ef=1800 --skipfps=9 --skip=2 --type=1
+	
+	1.0 - 1.05 --> right
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=1850 --ef=1950 --skipfps=9 --skip=2 --type=5
+	
+	1.0 - 1.05 --> acceleration
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=1850 --ef=1950 --skipfps=9 --skip=2 --type=1
+	
+	1.10 - 1.15 --> straight
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=2130 --ef=2230 --skipfps=9 --skip=2 --type=0
+	
+	1.20 - 1.27 --> left
+		python generate_dataset.py ..\rash\2018_05_06-17_03_11\output\motion.txt ..\motion_data_gt\ --sf=2460 --ef=2500 --skipfps=9 --skip=2 --type=4
+		 
+		
+6) 2018_05_06-17_05_34
+	1 - 6 --> zigzag
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=30 --ef=180 --skipfps=9 --skip=2 --type=3
+		
+	9 - 13 --> acceleration
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=260 --ef=340 --skipfps=9 --skip=2 --type=1
+		 
+	
+	49 - 54 --> de-acceleration
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=1500 --ef=1600 --skipfps=9 --skip=2 --type=2
+		 
+		
+	1.55 - 2.00 --> de-acceleration
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=3450 --ef=3550 --skipfps=9 --skip=2 --type=2
+		 
+		
+	2.00 - 2.05 --> stop
+		python generate_dataset.py ..\rash\2018_05_06-17_05_34\output\motion.txt ..\motion_data_gt\ --sf=3600 --ef=3750 --skipfps=9 --skip=2 --type=0
+		 
+		
+		
+7) 2018_05_06-17_07_47
+	1 - 6 --> right
+		python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\motion_data_gt\ --sf=30 --ef=160 --skipfps=9 --skip=2 --type=5
+		 
+
+	5 - 20 --> acceleration
+		python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\motion_data_gt\ --sf=270 --ef=350 --skipfps=9 --skip=2 --type=1
+		 
+		python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\motion_data_gt\ --sf=450 --ef=550 --skipfps=9 --skip=2 --type=1
+		 
+		
+	31 - 36 --> left
+		python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\motion_data_gt\ --sf=930 --ef=1080 --skipfps=9 --skip=2 --type=4
+
+	38 - 42 --> right
+		python generate_dataset.py ..\rash\2018_05_06-17_07_47\output\motion.txt ..\motion_data_gt\ --sf=1200 --ef=1260 --skipfps=9 --skip=2 --type=5
+		 
+		
+	
+8) 2018_05_06-17_08_57
+	1-7 --> start
+		python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\motion_data_gt\ --sf=40 --ef=130 --skipfps=9 --skip=2 --type=1
+		
+	8- 13 --> acceleration
+		python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\motion_data_gt\ --sf=250 --ef=350 --skipfps=9 --skip=2 --type=1
+	
+	21 - 26 --> right
+		python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\motion_data_gt\ --sf=640 --ef=770 --skipfps=9 --skip=2 --type=5
+		 
+		
+	31-36 -->left
+		python generate_dataset.py ..\rash\2018_05_06-17_08_57\output\motion.txt ..\motion_data_gt\ --sf=930 --ef=1080 --skipfps=9 --skip=2 --type=4
+		 
+
+9) 2018_05_06-17_10_18
+
+	1-7 --> start
+		python generate_dataset.py ..\rash\2018_05_06-17_10_18\output\motion.txt ..\motion_data_gt\ --sf=40 --ef=130 --skipfps=9 --skip=2 --type=1
+		
