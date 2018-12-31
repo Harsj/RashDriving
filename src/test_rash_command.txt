@@ -1,0 +1,36 @@
+
+python test_video.py ..\motion_data_gt\model_gt_org_1_0515.dump ..\motion_data_gt\2018_04_26-14_00_00_gt_org_1_0515.png --scale_factor=1 --motion_gt="..\rash\2018_04_26-14_00_00\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_org_5_0515.dump ..\motion_data_gt\2018_04_26-14_00_00_gt_org_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_04_26-14_00_00\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_rkf_1_0515.dump ..\motion_data_gt\2018_04_26-14_00_00_gt_rkf_1_0515.png --scale_factor=1 --motion_gt="..\rash\2018_04_26-14_00_00\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_rkf_5_0515.dump ..\motion_data_gt\2018_04_26-14_00_00_gt_rkf_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_04_26-14_00_00\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_nn_1_0515.dump ..\motion_data_gt\2018_04_26-14_00_00_gt_nn_1_0515.png --scale_factor=5 --motion_gt="..\rash\2018_04_26-14_00_00\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_nn_5_0515.dump ..\motion_data_gt\2018_04_26-14_00_00_gt_nn_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_04_26-14_00_00\output\motion.txt
+
+python test_video.py ..\motion_data_gt\model_gt_org_1_0515.dump ..\motion_data_gt\2018_04_26-14_00_27_gt_org_1_0515.png --scale_factor=1 --motion_gt="..\rash\2018_04_26-14_00_27\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_org_5_0515.dump ..\motion_data_gt\2018_04_26-14_00_27_gt_org_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_04_26-14_00_27\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_rkf_1_0515.dump ..\motion_data_gt\2018_04_26-14_00_27_gt_rkf_1_0515.png --scale_factor=1 --motion_gt="..\rash\2018_04_26-14_00_27\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_rkf_5_0515.dump ..\motion_data_gt\2018_04_26-14_00_27_gt_rkf_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_04_26-14_00_27\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_nn_1_0515.dump ..\motion_data_gt\2018_04_26-14_00_27_gt_nn_1_0515.png --scale_factor=5 --motion_gt="..\rash\2018_04_26-14_00_27\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_nn_5_0515.dump ..\motion_data_gt\2018_04_26-14_00_27_gt_nn_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_04_26-14_00_27\output\motion.txt
+
+python test_video.py ..\motion_data_gt\model_gt_org_1_0515.dump ..\motion_data_gt\2018_04_26-14_01_31_gt_org_1_0515.png --scale_factor=1 --motion_gt="..\rash\2018_04_26-14_01_31\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_org_5_0515.dump ..\motion_data_gt\2018_04_26-14_01_31_gt_org_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_04_26-14_01_31\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_rkf_1_0515.dump ..\motion_data_gt\2018_04_26-14_01_31_gt_rkf_1_0515.png --scale_factor=1 --motion_gt="..\rash\2018_04_26-14_01_31\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_rkf_5_0515.dump ..\motion_data_gt\2018_04_26-14_01_31_gt_rkf_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_04_26-14_01_31\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_nn_1_0515.dump ..\motion_data_gt\2018_04_26-14_01_31_gt_nn_1_0515.png --scale_factor=5 --motion_gt="..\rash\2018_04_26-14_01_31\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_nn_5_0515.dump ..\motion_data_gt\2018_04_26-14_01_31_gt_nn_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_04_26-14_01_31\output\motion.txt
+
+python test_video.py ..\motion_data_gt\model_gt_org_1_0515.dump ..\motion_data_gt\2018_05_06-17_03_11_gt_org_1_0515.png --scale_factor=1 --motion_gt="..\rash\2018_05_06-17_03_11\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_org_5_0515.dump ..\motion_data_gt\2018_05_06-17_03_11_gt_org_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_05_06-17_03_11\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_rkf_1_0515.dump ..\motion_data_gt\2018_05_06-17_03_11_gt_rkf_1_0515.png --scale_factor=1 --motion_gt="..\rash\2018_05_06-17_03_11\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_rkf_5_0515.dump ..\motion_data_gt\2018_05_06-17_03_11_gt_rkf_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_05_06-17_03_11\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_nn_1_0515.dump ..\motion_data_gt\2018_05_06-17_03_11_gt_nn_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_05_06-17_03_11\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_nn_5_0515.dump ..\motion_data_gt\2018_05_06-17_03_11_gt_nn_5_0515.png --scale_factor=5 --motion_gt="..\rash\2018_05_06-17_03_11\output\motion.txt
+
+python test_video.py ..\motion_data_gt\model_gt_org_1_0515.dump ..\motion_data_gt\2018_05_06-16_44_29_gt_org_1_0515.png --scale_factor=1 --motion_gt="..\normal\2018_05_06-16_44_29\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_org_5_0515.dump ..\motion_data_gt\2018_05_06-16_44_29_gt_org_5_0515.png --scale_factor=5 --motion_gt="..\normal\2018_05_06-16_44_29\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_rkf_1_0515.dump ..\motion_data_gt\2018_05_06-16_44_29_gt_rkf_1_0515.png --scale_factor=1 --motion_gt="..\normal\2018_05_06-16_44_29\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_rkf_5_0515.dump ..\motion_data_gt\2018_05_06-16_44_29_gt_rkf_5_0515.png --scale_factor=5 --motion_gt="..\normal\2018_05_06-16_44_29\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_nn_1_0515.dump ..\motion_data_gt\2018_05_06-16_44_29_gt_nn_1_0515.png --scale_factor=5 --motion_gt="..\normal\2018_05_06-16_44_29\output\motion.txt
+python test_video.py ..\motion_data_gt\model_gt_nn_5_0515.dump ..\motion_data_gt\2018_05_06-16_44_29_gt_nn_5_0515.png --scale_factor=5 --motion_gt="..\normal\2018_05_06-16_44_29\output\motion.txt
+
